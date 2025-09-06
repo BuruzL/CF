@@ -1,0 +1,50 @@
+#include<stdio.h>
+int main(){
+   int n;
+   int p,q;
+   int a;
+   scanf("%d",&n);
+   scanf("%d",&p);
+   int num1[p];
+   for(int i=0;i<p;i++){
+    scanf("%d", &num1[i]);
+   }
+   scanf("%d", &q);
+   int num2[q];
+   for(int j=0;j<q;j++){
+    scanf("%d", &num2[j]);
+   }
+   int check[n+1];
+   for(int i=0; i<=n; i++){
+    check[i]=0;
+   }
+   for(int i=0; i<p; i++){
+    if(num1[i]<=n){
+        int tmp;
+        tmp=num1[i];
+        check[tmp]=1;
+    }
+   }
+   for(int i=0; i<q; i++){
+    if(num2[i]<=n){
+        int tmp;
+        tmp=num2[i];
+        check[tmp]=1;
+    }
+   }
+   int stop=0;
+   for(int a=1; a<=n; a++){
+    if(check[a]==0){
+        stop=1;
+        break;
+    }
+   }
+   if(stop==1){
+    printf("Oh, my keyboard!");
+   }
+   else{
+    printf("I become the guy.");
+   }
+
+    return 0;
+}
