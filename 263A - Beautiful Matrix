@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<math.h>
+int main(){
+   int mat[5][5];
+   for(int i=0; i< 5; i++){
+    for(int j=0; j<5; j++){
+        scanf("%d", &mat[i][j]);
+    }
+   }
+   int cordi, cordj;
+   for(int i=0; i< 5; i++){
+    for(int j=0; j<5; j++){
+        if(mat[i][j]==1){
+            cordi=i;
+            cordj=j;
+        }
+    }
+   }
+   int moves;
+   moves=fabs(cordi-2)+fabs(cordj-2);
+   printf("%d", moves);
+
+
+    return 0;
+}
