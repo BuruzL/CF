@@ -1,0 +1,32 @@
+#include<stdio.h>
+int main(){
+   int n; 
+   scanf("%d", &n);
+   int got[n];
+
+   for(int i=0; i<n; i++){
+     int s;
+     scanf("%d", &s);
+     int num[s];
+     for(int j=0; j<s; j++){
+        scanf("%d", &num[j]);
+     }
+     int count[s+1];
+     for(int l=0; l<s+1; l++)count[l]=0;
+     for(int j=0; j<s; j++){
+        count[num[j]]++;
+     }
+    int ans=-1;
+    for(int v=1; v<=s; v++){
+        if(count[v]>=3){
+            ans=v;
+            break;
+        }
+    }
+    got[i]=ans;
+   }
+   for(int i=0; i<n; i++){
+    printf("%d\n", got[i]);
+   }
+    return 0;
+}
