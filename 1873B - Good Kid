@@ -1,0 +1,38 @@
+#include<stdio.h>
+int main(){
+    int n;
+    scanf("%d", &n);
+    int num[n][10];
+    long long multi[n][10];
+    long long max[n];
+    for(int i=0; i<n; i++){
+        for(int j=0; j<10; j++){
+            multi[i][j]=1;
+        }
+    }
+    for(int i=0; i<n; i++){
+      max[i]=-1;
+    }
+    for(int i=0; i<n; i++){
+        int s;
+        scanf("%d", &s);
+        for(int j=0; j<s; j++){
+            scanf("%d", &num[i][j]);
+        }
+        for(int j=0; j<s; j++){
+            long long p=1;
+            for(int k=0; k<s; k++){
+                long long val=num[i][k]+(k==j? 1:0);
+                p*=val;
+            }
+            multi[i][j]=p;
+            if(p>max[i]) max[i]=p;
+        }
+       
+    }
+for(int i=0; i<n; i++){
+    printf("%d\n", max[i]);
+}
+   
+    return 0;
+}
