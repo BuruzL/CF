@@ -1,0 +1,16 @@
+#include<stdio.h>
+int main(){
+   int n;
+   scanf("%d", &n);
+   
+   int level=0;
+   int sum=0;
+  while(1){
+    int cube=(level+1)*(level+2)/2;
+    if(sum+cube>n) break;
+    sum+=cube;
+    level++;
+  }
+   printf("%d", level);
+    return 0;
+}
