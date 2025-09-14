@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main(){
+   int n;
+   scanf("%d", &n);
+   int dig[n];
+   for(int i=0; i<n; i++){
+    int a,b,c;
+    scanf("%d%d%d", &a, &b, &c);
+     
+    if(a==b){
+        dig[i]=c;
+    }else if(b==c){
+        dig[i]=a;
+    }else if(a==c){
+        dig[i]=b;
+    }else{
+        dig[i]=0;
+    }
+   }
+   for(int j=0; j<n;j++){
+    printf("%d\n", dig[j]);
+   }
+
+    return 0;
+}
