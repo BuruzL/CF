@@ -1,0 +1,9 @@
+#include <stdio.h>
+
+int main(void) {
+    long long x;
+    scanf("%lld", &x);
+    long long steps = (x + 4) / 5;   
+    printf("%lld\n", steps);
+    return 0;
+}
