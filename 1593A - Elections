@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    scanf("%d", &n);
+    int num[n][3];
+    int req[n][3];
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            scanf("%d", &num[i][j]);
+        }
+        int max = 0;
+        int u = 0;
+        for (int k = 0; k < 3; k++)
+        {
+            if (num[i][k] > max)
+            {
+                max = num[i][k];
+                u = k;
+            }
+        }
+        int cntMax = 0;
+        for (int k = 0; k < 3; k++)
+            if (num[i][k] == max)
+                cntMax++;
+
+        for (int m = 0; m < 3; m++)
+        {
+            if (num[i][m] == max)
+            {
+                req[i][m] = (cntMax == 1) ? 0 : 1;
+            }
+            else
+            {
+                req[i][m] = max - num[i][m] + 1;
+            }
+        }
+    }
+    for (int l = 0; l < n; l++)
+    {
+        for (int w = 0; w < 3; w++)
+        {
+            printf("%d ", req[l][w]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
