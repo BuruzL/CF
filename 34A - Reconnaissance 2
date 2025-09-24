@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+    int n;
+    scanf("%d", &n);
+    int a[n];
+    for(int i=0; i<n; i++)scanf("%d", &a[i]);
+    int diff=abs(a[n-1]-a[0]);
+    int i1=n,i2=1;
+
+    for(int i=0; i<n; i++){
+        int d=abs(a[i]-a[i+1]);
+        if(d<diff){
+            diff=d;
+            i1=i+1;
+            i2=i+2;
+        }
+    }
+    printf("%d %d\n",i1,i2);
+    return 0;
+}
