@@ -1,0 +1,24 @@
+#include<stdio.h>
+int main(){
+    int num[4];
+    int sum=0;
+    for(int i=0; i<4; i++){
+        scanf("%d", &num[i]);
+        if(sum<num[i]){
+            sum=num[i];
+        }
+    }
+    int out[3];
+    int ctr=0;
+    for(int j=0; j<4; j++){
+        if((sum-num[j])!=0){
+            out[ctr++]=sum-num[j];
+        }
+    }
+    for(int j=0 ;j<ctr; j++){
+       printf("%d ", out[j]);
+    }
+
+
+    return 0;
+}
