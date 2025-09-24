@@ -1,0 +1,10 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int main(){
+    char cap[1001];
+    scanf("%1000s", cap);
+    cap[0]=toupper((unsigned char)cap[0]);
+    puts(cap);
+    return 0;
+}
