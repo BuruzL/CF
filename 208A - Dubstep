@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char wub[201];
+    scanf("%200s", wub);
+    int len;
+    len=strlen(wub);
+    int i=0,p=0;
+    while(i<len){
+        if(i+2<len && wub[i]=='W' && wub[i+1]=='U' && wub[i+2]=='B'){
+            i+=3;
+            if(p)printf(" ");
+    }else{
+            printf("%c", wub[i]);
+            p=1;
+            i++;
+        }
+    }
+    printf("\n");
+    return 0;
+}
