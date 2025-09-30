@@ -1,0 +1,19 @@
+#include<stdio.h>
+int main(){
+    int n,b,d;
+    scanf("%d%d%d",&n,&b,&d);
+    int o[n];
+    for(int i=0; i<n; i++)scanf("%d",&o[i]);
+    int sum=0,ctr=0;
+    for(int j=0; j<n; j++){
+        if(o[j]<=b){
+            sum=sum+o[j];
+            if(sum>d){
+                ctr++;
+                sum=0;
+            }
+        }
+    }
+    printf("%d", ctr);
+    return 0;
+}
