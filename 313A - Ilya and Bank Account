@@ -1,0 +1,17 @@
+#include<stdio.h>
+int main(){
+    long long num;
+    scanf("%lld", &num);
+    
+    if(num>0){
+        printf("%d", num);
+        return 0;
+    }
+    long long a=num/10;
+    long long b=(num/100)*10+(num%10);
+    long long max=num;
+    if(a>max)max=a;
+    if(b>max)max=b;
+    printf("%d",max);
+    return 0;
+}
