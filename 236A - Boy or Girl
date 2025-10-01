@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char name[101];
+    scanf("%100s", name);
+    int len;
+    len=strlen(name);
+    int chk[256];
+    int ctr=0;
+    for(int i=0; i<256; i++)chk[i]=0;
+    for(int i=0; i<len; i++){
+        int b=(unsigned char)(name[i]);
+        if(chk[b]==0){
+            ctr++;
+            chk[b]=1;
+        }
+    }
+    if(ctr%2==0)printf("CHAT WITH HER!");
+    else printf("IGNORE HIM!");
+    return 0;
+}
