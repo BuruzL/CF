@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+int main()
+{
+    char str[101];
+    scanf("%100s", str);
+    int len;
+    len = strlen(str);
+    int h = 0, l = 0;
+    for (int i = 0; i < len; i++)
+    {
+        if (str[i] >= 'A' && str[i] <= 'Z')
+            h++;
+        if (str[i] >= 'a' && str[i] <= 'z')
+            l++;
+    }
+    if (h > l)
+    {
+        int j = 0;
+        while (str[j])
+        {
+            str[j] = toupper(str[j]);
+            j++;
+        }
+    }
+    else
+    {
+        int j = 0;
+        while (str[j])
+        {
+            str[j] = tolower(str[j]);
+            j++;
+        }
+    }
+    printf("%s\n", str);
+    return 0;
+}
