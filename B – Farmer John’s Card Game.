@@ -1,0 +1,59 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct{
+    int v, cow;
+}Item;
+
+int cmp_item(const void *a, const void *b){
+    const Item *x=(const Item*)a, *y=(const Item*)b;
+    return (x->v > y->v)-(x->v < y->v);
+}
+int main(void){
+    int t;
+    scanf("%d", &t);
+    while(t--){
+        int n, m;
+        scanf("%d%d", &n, &m);
+        int nm=n*m;
+        Item *all=(Item*)malloc(nm*sizeof(Item));
+        if(!all)return 0;
+        int idx=0;
+        for(int i=0; i<n; i++){
+            for(int j=0; j<m; j++){
+                int x;
+                scanf("%d",&x);
+                all[idx++]=(Item){x, i};
+            }
+        }
+        qsort(all, nm, sizeof(Item), cmp_item);
+        int *owner=(int*)malloc(nm*sizeof(int));
+        for(int i=0; i<nm; i++)owner[i]=all[i].cow;
+
+        int ok=1;
+        int *p=(int*)malloc(n*sizeof(int));
+        char *seen=(char*)calloc(n,1);
+        for(int j=0; j<n; j++){
+            int c=all[j].cow;
+            if(seen[c]){ok=0; break;}
+            seen[c]=1;
+            p[j]=c;
+        }
+        for(int b=1; ok&& b<m; ++b)
+        for(int j=0; j<n; j++)
+        if(all[b*n+j].cow != p[j]){
+            ok=0;
+            break;
+        }
+        if(!ok)puts("-1");
+        else{
+            for(int j=0; j<n; j++){
+                if (j) putchar(' ');
+                printf("%d", p[j] + 1);      
+            }
+             putchar('\n');
+        }
+          free(all); free(p); free(seen);
+    }
+      return 0;
+}
