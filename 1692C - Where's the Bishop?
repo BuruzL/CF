@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+    int n;
+    scanf("%d", &n);
+        while(n--){
+            char str[8][8];
+            for(int i=0; i<8; i++){
+                for(int j=0; j<8; j++){
+                    scanf(" %c", &str[i][j]);
+                }
+            }
+            int star[8]={0};
+            int cx=0, cy=0;
+            for(int i=0; i<8; i++){
+                int s=0;
+                for(int j=0; j<8; j++){
+                   if(str[i][j]=='#')s++;
+                }
+                star[i]=s;
+            }
+            for(int k=1; k<8; k++){
+                if(star[k]==1){
+                    if(star[k-1]==2 && star[k+1]==2){
+                        cx=k;
+                    }
+                }
+            }
+            for(int k=0; k<8; k++){
+                if(str[cx][k]=='#'){
+                    cy=k;
+                    break;
+                }
+            }
+           
+            printf("%d %d\n",(cx+1), (cy+1));
+        }
+
+    return 0;
+}
