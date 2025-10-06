@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    int t;
+    scanf("%d", &t);
+    while (t--)
+    {
+        int n, k;
+        scanf("%d%d", &n, &k);
+        char act[k];
+        char chk[n];
+        for (int i = 0; i < n; i++)
+        {
+            chk[i] = '0';
+        }
+        chk[n] = '\0';
+        int first = 0;
+        int last = n - 1;
+        scanf("%1000s", act);
+
+        for (int i = 0; i < k; i++)
+        {
+            if (act[i] == '0')
+            {
+                chk[first] = '-';
+                first++;
+            }
+            else if (act[i] == '1')
+            {
+                chk[last] = '-';
+                last--;
+            }
+            else if (act[i] == '2')
+            {
+                if (n == 1 && k == 1)
+                {
+                    chk[first] = '-';
+                }
+                else
+                {
+                    if (act[i + 1] == 0)
+                    {
+                        chk[last] = '?';
+                        last--;
+                    }
+                    else if (act[i + 1] == '1')
+                    {
+                        chk[first] = '?';
+                        first++;
+                    }
+                    else if (act[i + 1] == '2')
+                    {
+                        chk[first] = '?';
+                        chk[last] = '?';
+                        first++;
+                        last--;
+                    }
+                }
+            }
+        }
+
+        for (int j = 0; j < n; j++)
+        {
+            if (chk[j] == '0')
+            {
+                chk[j] = '+';
+            }
+        }
+        for (int i = 0; i < n; i++)
+        {
+            printf("%c", chk[i]);
+        }
+        printf("\n");
+    }
+    return 0;
+} 
