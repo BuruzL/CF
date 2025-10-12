@@ -1,0 +1,24 @@
+#include<stdio.h>
+int main(){
+    int t;
+    scanf("%d", &t);
+    while(t--){
+        int n;
+        scanf("%d",&n);
+        int num[n];
+        int ctr=0;
+        int min1ctr=0;
+        for(int i=0; i<n; i++){
+            scanf("%d", &num[i]);
+            if(num[i]==0)ctr++;
+            else if(num[i]==-1)min1ctr++;
+        }
+        if(min1ctr%2!=0){
+            ctr=ctr+2;
+        }
+        else if(min1ctr%2==0)ctr=ctr;
+
+        printf("%d\n", ctr);
+    }
+    return 0;
+}
