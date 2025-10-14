@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main(){
+    int n;
+    scanf("%d",&n);
+    char rbg[n];
+    int ctr=0;
+    scanf("%s", rbg);
+     for(int i=1; i<n; i++){
+      if(rbg[i]==rbg[i-1])++ctr;
+    }
+    printf("%d\n",ctr);
+    return 0;
+    
+}
