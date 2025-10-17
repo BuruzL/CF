@@ -1,0 +1,16 @@
+#include<stdio.h>
+int main(){
+  int n;
+  scanf("%d",&n);
+  int chkm=0,chkc=0;
+  while(n--){
+    int m,c;
+    scanf("%d %d", &m,&c);
+    if(m>c)chkm++;
+    else if(c>m)chkc++;
+  }
+  if(chkc>chkm)printf("Chris");
+  else if(chkm>chkc)printf("Mishka");
+  else printf("Friendship is magic!^^");
+  return 0;
+}
