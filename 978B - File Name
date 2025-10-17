@@ -1,0 +1,20 @@
+#include<stdio.h>
+int main(){
+  int n;
+  scanf("%d",&n);
+  char xxx[n+1];
+  scanf("%s", xxx);
+  int ctr=0,idx=0,ans=0;
+  int max=-1;
+  while(xxx[idx]!='\0'){
+    if(xxx[idx]=='x'){
+      ctr++;
+       if(ctr>=3) ans++;
+    }else if(xxx[idx]!='x'){
+      ctr=0;
+    }
+    idx++;
+  }
+  printf("%d", ans);
+  return 0;
+}
