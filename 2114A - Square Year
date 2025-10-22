@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<math.h>
+int main(){
+    int n;
+    scanf("%d",&n);
+    while(n--){
+        int y;
+        scanf("%d",&y);
+        int root=(int)(sqrt((double)y)+.5);
+         
+        if(1LL*root*root ==y){
+            printf("0 %d\n", root);
+        }else{
+            printf("-1");
+        }
+
+        printf("\n");
+    }
+    return 0;
+}
